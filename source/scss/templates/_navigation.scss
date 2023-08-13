@@ -18,7 +18,6 @@
 }
 
 a[href^=tel] {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -176,14 +175,17 @@ ul.navbar-nav>li.active>a {
   color: $color-primary !important;
 }
 
-
 /*-- Logo --*/
 .logo img {
   width: auto;
-  height: 35px;
+  height: 80px;
 }
 .header-two .logo img {
-  height: 30px;
+  height: 80px;
+}
+
+.header-two .logo a {
+  padding: 10px 0;
 }
 
 /* header right */
@@ -325,7 +327,7 @@ ul.top-info-box>li.nav-search i {
 }
 .navbar-dark .navbar-toggler-icon,
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='https://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 ul.navbar-nav>li:hover>a,
@@ -417,6 +419,24 @@ ul.navbar-nav>li>a {
   color: #000 !important;
   font-size: 13px;
 }
+
+// .user-navbar ul.navbar-nav>li:last-child {
+//  padding: 10px 0;
+// }
+
+// .user-navbar ul.navbar-nav>li:last-child>a.nav-link {
+//   line-height: 15px !important;
+//   padding: 15px !important;
+//   font-weight: 700;
+//   background: none;
+//   border: 2px solid $color-primary!important;
+//   border-radius: 3px;
+// }
+
+// .user-navbar ul.navbar-nav>li:last-child>a.nav-link:hover {
+//   color: #fff !important;
+//   background-color: $color-primary;
+// }
 
 
 /* Dropdown */
@@ -560,7 +580,6 @@ ul.navbar-nav>li>a {
   }
 }
 
-
 .search-block {
   background-color: rgba(0, 0, 0, .65);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -619,7 +638,6 @@ ul.navbar-nav>li>a {
   font-size: 13px;
   border-radius: 3px;
   line-height: normal;
-  text-transform: capitalize;
   color: #fff;
   margin-top: 5px;
   @include desktop-lg {
@@ -631,7 +649,7 @@ ul.navbar-nav>li>a {
 }
 
 .header-get-a-quote .btn-primary:hover {
-  background: #272d33;
+  background: #272d33 !important;
   color: $color-primary !important;
 }
 

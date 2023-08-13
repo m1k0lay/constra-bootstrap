@@ -12,7 +12,7 @@
   padding: 12px 20px 10px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #fff;
+  color: #fff !important;
   font-family: $font-secondary;
   transition: 350ms;
   font-size: 14px;
@@ -23,11 +23,14 @@
 
 .btn-white.btn-primary {
   background: #fff;
-  color: #ffb600;
+  color: $color-primary;
 }
 
 .btn-primary {
-  background: #ffb600;
+  color: #fff;
+  background: $color-primary;
+  background-color: $color-primary !important;
+  border-color: $color-primary;
 }
 
 .btn-dark {

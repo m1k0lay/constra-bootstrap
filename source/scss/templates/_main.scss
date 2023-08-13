@@ -35,10 +35,21 @@
   }
 }
 
+.banner-carousel .slide-overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
 .slider-content {
   position: relative;
   height: 100%;
   width: 100%;
+  z-index: 2;
 }
 
 .slide-title-box {
@@ -57,6 +68,7 @@
   font-weight: 300;
   color: #fff;
   margin: 20px 0 10px;
+  text-shadow: 1px 1px 5px $color-secondary;
   @include desktop {
     font-size: 22px;
   }
@@ -66,6 +78,7 @@
 }
 
 .slide-sub-title {
+  
   font-style: normal;
   font-size: 60px;
   line-height: 58px;
@@ -74,6 +87,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -1px;
+  text-shadow: 1px 1px 5px $color-secondary;
   @include desktop {
     font-size: 46px;
   }
@@ -334,8 +348,6 @@
   margin: 10px 0;
 }
 
-
-
 /*-- Featured Tab --*/
 
 .featured-tab {
@@ -489,6 +501,10 @@
   line-height: 28px;
 }
 
+.ts-service-box-bg:hover .ts-service-box-content {
+  color: #ffb600;
+}
+
 .ts-service-box .ts-service-box-info {
   margin-left: 25px;
   margin-bottom: 40px;
@@ -518,7 +534,7 @@
 }
 
 
-/* Service box 
+/* Service box
 
 .ts-service-box .ts-service-icon i {
   font-size: 24px;
@@ -704,9 +720,17 @@
 }
 
 
+/* Project shuffle */
+.shuffle {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0; 
+}
+
 /* Project shuffle Item */
 .shuffle-item {
   padding: 0;
+  list-style-type: none;
 
   .project-img-container {
     position: relative;
@@ -939,7 +963,9 @@
 .clients-logo {
   margin: 0 0 30px;
   border: 1px solid #dadada;
+  background-color: #ffffff;
   min-height: 105px;
+  max-width: 165px;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
@@ -948,9 +974,16 @@
   align-content: center;
 }
 
-.clients-logo img {
-  filter: grayscale(100%);
-  filter: gray;
+.clients-logo:hover, 
+.clients-logo:focus {
+  box-shadow: 0 10px 20px rgba(41,52,73,.5);
+  transition: 0.25s;
+}
+
+.clients-logo:active {
+    box-shadow: 0 4px 10px rgba(41, 52, 73, 0.5);
+    transition: 0.25s;
+    opacity: 0.3;
 }
 
 /* Testimonial
@@ -998,9 +1031,9 @@
   bottom: -35px;
 }
 
-
-img.testimonial-thumb {
-  max-width: 80px;
+.testimonial-slide .quote-item .avatar {
+  width: 80px;
+  height: 80px;
   float: left;
   margin-right: 20px;
   border-radius: 5px;
@@ -1090,9 +1123,10 @@ img.testimonial-thumb {
 /* Subscribe area
 ================================================== */
 
-.subscribe {
+.color-primary {
   background: $color-primary;
   padding: 0;
+
 }
 
 
@@ -1100,11 +1134,12 @@ img.testimonial-thumb {
 
 .subscribe-call-to-acton {
   min-height: 115px;
-  padding: 30px 0 0 30px;
+  padding: 0 32px 0 32px;
+  display: flex;
+  align-items: flex-end;
+  flex-flow: column;
+  justify-content: center;
   @include mobile {
-    text-align: center;
-    padding: 30px 0;
-    min-height: auto;
   }
 }
 
@@ -1123,38 +1158,53 @@ img.testimonial-thumb {
 
 /* Newsletter */
 
-.ts-newsletter {
-  background: #252525;
+.color-secondary {
+  background: $color-secondary;
   position: relative;
   min-height: 115px;
-  padding: 15px 0 0 50px;
   @include tablet {
-    padding-top: 20px;
-    padding-bottom: 10px;
   }
   @include mobile {
-    padding: 30px 5px 15px 5px;
-    min-height: auto;
-    text-align: center;
   }
-  &:after {
-    content: "";
-    position: absolute;
-    background: #252525;
-    display: block;
-    width: 100%;
-    height: 100%;
-    right: -100%;
-    top: 0;
   }
+
+.color-secondary-before::before {
+  content: "";
+  position: absolute;
+  background: $color-secondary;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
 }
+
+.color-secondary-after::after {
+  content: "";
+  position: absolute;
+  background: $color-secondary;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+}
+
+.newsletter-form .form-group {
+  margin-bottom: 0;
+}
+
 .newsletter-form input {
-  background: none;
+  background: #fff;
   font-size: 12px;
   height: 45px;
   border: 1px solid rgba(255, 255, 255, .3);
 }
 
+.email-subscription #mailpoet_form_1 {
+  border: none;
+  border-radius: none;
+}
 
 /* News section
 ================================================== */
@@ -1219,13 +1269,11 @@ img.testimonial-thumb {
   border-left: 3px solid $color-primary;
 }
 
-
-
-
 /* Footer about us */
 
 .footer-logo {
   margin-bottom: 25px;
+  height: 80px;
 }
 
 
@@ -1301,8 +1349,13 @@ img.testimonial-thumb {
   padding: 25px 0;
   position: relative;
   z-index: 1;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -.2px;
+  line-height: 40px;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
 }
 
 .footer-menu ul li {
@@ -1343,7 +1396,7 @@ img.testimonial-thumb {
   width: 36px;
   height: 36px;
   line-height: 36px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9) !important;
   border-radius: 3px;
   color: $color-primary;
   font-weight: 700;
@@ -1374,13 +1427,13 @@ img.testimonial-thumb {
 
 
 /*-- Banner --*/
-
 .banner-area {
   position: relative;
   min-height: 300px;
   color: #fff;
-  background-position: 50% 50%;
+  background-position: center center;
   background-size: cover;
+  filter: brightness(0.95);
 }
 
 .banner-title {
@@ -1410,26 +1463,18 @@ img.testimonial-thumb {
 
 .banner-heading {
   text-align: center;
+  text-shadow: 1px 1px 5px $color-secondary;
 }
 
-.breadcrumb {
-  padding: 0;
-  background: none;
+.breadcrumbs {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 12px;
-  li a,
-  .breadcrumb-item,
-  li a:focus,
-  li a:hover {
-    color: #fff !important;
-  }
-  .breadcrumb-item+.breadcrumb-item::before {
-    color: #fff;
+  font-size: 14px;
+  padding: 8px 15px;
+  a {
+      text-decoration: none;
   }
 }
-
-
 /*-- About us page --*/
 
 
@@ -1807,7 +1852,8 @@ label {
   color: $color-primary;
 }
 
-.post-meta span {
+.post-meta span:not(:last-child),
+.entry-meta span:not(:last-child) {
   margin-right: 10px;
   padding-right: 10px;
   border-right: 1px solid #dadada;
@@ -1815,13 +1861,18 @@ label {
   display: inline-block;
 }
 
-.post-meta i {
+.post-meta i,
+.entry-meta i {
   color: #bbb;
   margin-right: 3px;
 }
 
 .post-meta .post-comment {
   border-right: 0;
+}
+
+.comment .comment-content {
+  overflow: hidden;
 }
 
 .post-meta .post-comment .comments-link {
@@ -2051,8 +2102,6 @@ label {
   border-left: 3px solid $color-primary;
 }
 
-
-
 /* Widget common */
 
 .sidebar .widget {
@@ -2092,7 +2141,7 @@ label {
   color: #303030;
 }
 
-.sidebar .widget ul li a:hover {
+.entry-title a:hover {
   color: $color-primary;
 }
 
@@ -2116,7 +2165,6 @@ label {
 
 .sidebar ul.nav-tabs li {
   width: 100%;
-  a {
     color: #303030;
     border-radius: 0;
     padding: 15px 0;
@@ -2125,7 +2173,6 @@ label {
     border-bottom: 1px solid #ddd;
     display: block;
     transition: 400ms;
-  }
 }
 
 .sidebar ul.nav-tabs li.active a,
@@ -2138,13 +2185,21 @@ label {
   line-height: normal;
 }
 
-.sidebar ul.nav-tabs li:last-child a {
+.sidebar ul.nav-tabs li:last-child {
   border-bottom: 0;
 }
 
+.sidebar ul.nav-tabs li:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.sidebar ul.nav-tabs li .alignleft {
+  margin: 0 15px 10px 0;
+}
 
 /* Service menu */
-
 .sidebar ul.service-menu {
   li {
     width: 100%;
@@ -2166,28 +2221,29 @@ label {
   }
 }
 
-
 /* Recent News */
 .widget.recent-posts .widget-title {
   margin-bottom: 35px;
 }
 
-.widget.recent-posts {
+.recent-posts {
   ul li {
-    border-bottom: 1px solid #dadada;
-    padding-bottom: 15px;
-    margin-bottom: 17px;
+    // border-bottom: 1px solid #dadada;
+    // padding-bottom: 15px;
+    // margin-bottom: 17px;
     &:last-child {
       border: 0;
       padding-bottom: 0;
       margin-bottom: 0;
     }
   }
-  .posts-thumb img {
-    margin-right: 15px;
-    width: 90px;
+  .recentpost img {
+    float: left;
+    margin: 0 15px 10px 0;
+    width: 70px;
     height: 70px;
   }
+
   .post-info .entry-title {
     font-size: 13px;
     font-weight: 600;
@@ -2201,30 +2257,32 @@ label {
       }
     }
   }
+  .post-author,
   .post-date {
+    font-size: 12px;
     font-weight: 400;
     color: #999;
+    display: block;
     text-transform: capitalize;
   }
 }
 
 
 /* Widget tags */
-.widget-tags ul>li {
+.widget-tags a {
   float: left;
   margin: 3px;
 }
 
-.sidebar .widget-tags ul>li a {
+.sidebar .widget-tags a {
   border: 1px solid #dadada;
   color: #303030;
-  display: block;
   font-size: 14px;
   padding: 3px 15px;
   transition: all 0.3s ease 0s;
 }
 
-.sidebar .widget-tags ul>li a:hover {
+.widget-tags a:hover {
   background: $color-primary;
   color: #fff;
   border: 1px solid transparent;
